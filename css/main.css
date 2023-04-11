@@ -15,16 +15,11 @@ body {
   font-family: "Outfit", sans-serif;
   font-size: 1.125rem;
   line-height: 1.4;
-}
-
-h1 {
-  color: hsl(0, 0%, 100%);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 15px 0;
-}
-p {
-  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 figure {
@@ -36,47 +31,87 @@ img {
 }
 
 /* ============================ Card ============= */
-.card {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  background-color: hsl(216, 50%, 16%);
-  width: 340px;
-  height: 600px;
-  border-radius: 20px;
+.container {
   margin: 150px auto;
+  max-width: 350px;
+}
+
+.card {
+  background-color: hsl(216, 50%, 16%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.75);
+  margin: 2rem 1rem;
+  padding: 20px;
 }
 
 .card-image {
-  height: 340px;
-  padding: 20px 20px 0 20px;
+  border-radius: 12px;
   overflow: hidden;
+  position: relative;
+  display: block;
 }
 
 .card-image img {
-  border-radius: 10px;
+  display: block;
+  width: 100%;
 }
 
-/* Card content */
+.eye-icon {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: hsla(178, 100%, 50%, 0.5);
+}
 
-.card-content {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 20px;
-  margin-bottom: 20px;
+.eye-icon img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -45%);
+  width: 50px;
+}
+
+.card-image:hover .eye-icon {
+  display: block;
+  cursor: pointer;
+}
+
+.card-text {
+  padding: 10px 0;
+}
+
+.card-text a {
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.card-text a:hover {
+  color: hsl(178, 100%, 50%);
+}
+
+.card-text .info {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
 }
 
 .card-info {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  padding: 10px 0;
 }
 
 .card-info div {
   display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 .left-side,
@@ -97,27 +132,20 @@ img {
   color: hsl(178, 100%, 50%);
 }
 
-/* Footer */
-.name {
-  color: hsl(0, 0%, 100%);
-}
-
-.line-divider {
-  color: hsl(0, 0%, 100%);
-  height: 5px;
+hr {
+  border: hsl(215, 32%, 27%) 1px solid;
   margin: 10px 0;
+}
+/* ====================== Footer =========== */
+footer {
+  padding-top: 20px;
+  padding: 20px 0 20px;
   width: 100%;
 }
 
-/* ================= Footer =================== */
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .footer-image {
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border: 1px solid white;
   border-radius: 50px;
   margin-right: 10px;
@@ -125,6 +153,14 @@ footer {
 
 footer div {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+}
+
+.name {
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.name:hover {
+  color: hsl(178, 100%, 50%);
 }
